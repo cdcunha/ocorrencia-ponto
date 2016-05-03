@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title><%= title %></title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="/javascripts/jquery.min.js"></script>
+		<script src="/javascripts/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="/stylesheets/bootstrap.min.css"/>
+		<script src="/javascripts/angular.min.js"></script>
+		<link rel="stylesheet" href="/stylesheets/ocorrencia.css"/>
+	</head>
+	<body ng-app="app">
+		<div class="container" ng-controller="OcorrenciaCtrl">
+			<div class="col-md-6">
+				<div class='row'>
+					<div style="float:left;">
+						<img src="/images/sistemas-seguros-logo.png" alt="Logo Sistemas Seguros"/>
+					</div>
+					<div style="float:left; margin-left:45px;">
+						<h4 style="margin-top:35px; text-align: center"><b><%= title_1 %></b></h4>
+						<h4 style="text-align: center"><b><%= title_2 %></b></h4>
+					</div>
+				</div>
+				<div class='form-group row'>
+					<label for="nomeFunc">NOME DO FUNCIONÁRIO:</label>
+					<input type="text" class="input-small form-control" id="nomeFunc" value="" placeholder="Digite seu nome"/>
+				</div>
+				<div class='form-group row'>
+					<label for="dataOcorrencia">DATA DE OCORRÊNCIA:</label>
+					<input type="date" class="input-small form-control" id="dateOcorrencia" value=""/>
+				</div>
+				<div class='form-group row'>
+					<label for="cmbOcorrencia">Ocorrência</label>
+					<select id="cmbOcorrencia" class="input-small form-control"
+						ng-options="option.name for option in dataOccur.availableOptions track by option.id"
+						ng-model="dataOccur.selectedOption">
+					</select>
+				</div>
+				<div class="form-group row">
+					<label for="historico">HISTÓRICO</label>
+					<textarea id="historico" class="form-control" rows="10" placeholder="Digite o histórico, a descrição, ou o detalhe da ocorrência"></textarea>
+				</div>
+				<div class="form-group row">
+					<label>ANEXADOS OS DOCUMENTOS ABAIXO</label>
+					<textarea id="documentos" class="form-control" rows="3" placeholder="Anexar documentos"></textarea>
+				</div>
+				<div class="form-group row">
+					<label for="cmbParecer">PARECER DO RESPONSÁVEL</label>
+					<select id="cmbParecer" class="input-small form-control"
+						ng-options="option.name for option in dataParecer.availableOptions track by option.id"
+						ng-model="dataParecer.selectedOption">
+					</select>
+				</div>
+				<div class='row'>
+					São Paulo <input type="date" id="dateAssinatura" class="input-small"/>
+				</div>
+				<br/><br/>
+				<div class='row'>
+					<table class="table table-borderless table-condensed">
+						<tr>
+							<td>____________________________________</td>
+							<td>____________________________________</td>
+						</tr>
+						<tr>
+							<td style="text-align: center">ASSINATURA DO FUNCIONÁRIO</td>
+							<td style="text-align: center">RESPONSÁVEL DIRETO</td>
+						</tr>
+					</table>
+				</div>
+				<div class='row'>
+					<button ng-click="print()" class="btn btn-primary btn-sm notPrintable">Imprimir</button>
+					<div class="notPrintable" style="font-size:xx-small">Versão 0.1.5</div>
+				</div>
+			</div>
+		</div>
+		<script src="/javascripts/ocorrencia.js"></script>
+	</body>
+</html>
