@@ -32,15 +32,16 @@ function OcorrenciaCtrl($scope, $window){
 			{id: "5", name:"PAGAR HORAS EXTRAS"},
 			{id: "6", name:"FÉRIAS"}
 		],
-		selectedOption: {id: '3', name: 'CONSIDERAR BANCO DE HORAS'}
+		selectedOption: {id: '0', name: ''}
 	};
 	
 	$scope.print = function(){
-		$(".notPrintable").hide();
+		$scope.noPrintable = true;
 		$window.print();
-		$(".notPrintable").show();
+		$scope.noPrintable = false;
 	}
 	$scope.initializePage = function(){
+		$scope.manager = 0;
 		$scope.showPrint = 0;
 	}
 	$scope.initializePage();

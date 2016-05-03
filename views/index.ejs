@@ -49,7 +49,8 @@
 					<label for="cmbParecer">PARECER DO RESPONSÁVEL</label>
 					<select id="cmbParecer" class="input-small form-control"
 						ng-options="option.name for option in dataParecer.availableOptions track by option.id"
-						ng-model="dataParecer.selectedOption">
+						ng-model="dataParecer.selectedOption"
+						ng-disabled="manager == 0">
 					</select>
 				</div>
 				<div class='row'>
@@ -69,8 +70,8 @@
 					</table>
 				</div>
 				<div class='row'>
-					<button ng-click="print()" class="btn btn-primary btn-sm notPrintable">Imprimir</button>
-					<div class="notPrintable" style="font-size:xx-small">Versão 0.1.5</div>
+					<button ng-click="print()" ng-hide="noPrintable == true" class="btn btn-primary btn-sm notPrintable">Imprimir</button>
+					<div ng-hide="noPrintable == true" class="notPrintable" style="font-size:xx-small">Versão 0.1.6</div>
 				</div>
 			</div>
 		</div>
