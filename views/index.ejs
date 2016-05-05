@@ -1,16 +1,14 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-	<head>
-		<title><%= title %></title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<script src="/javascripts/jquery.min.js"></script>
-		<script src="/javascripts/bootstrap.min.js"></script>
-		<link rel="stylesheet" href="/stylesheets/bootstrap.min.css"/>
-		<script src="/javascripts/angular.min.js"></script>
-		<link rel="stylesheet" href="/stylesheets/ocorrencia.css"/>
-	</head>
-	<body ng-app="app">
+<% layout('layout') -%>
+
+<%if (!user) { %>
+	<a href="/login">Login</a>
+	<br/>
+	<a href="/register">Register</a>
+<% } %>
+<%if (user) { %>
+	<p>You are currently logged in as <%= user.username %>
+	<a href="/logout">Logout</a>
+	<div ng-app="app">
 		<div class="container" ng-controller="OcorrenciaCtrl">
 			<div class="col-md-6">
 				<div class='row'>
@@ -76,5 +74,5 @@
 			</div>
 		</div>
 		<script src="/javascripts/ocorrencia.js"></script>
-	</body>
-</html>
+	</div>
+<% } %>
