@@ -1,4 +1,5 @@
 var express = require('express');
+var passport = require('passport');
 var router = express.Router();
 
 /* GET home page. */
@@ -11,7 +12,6 @@ router.get('/register', function(req, res){
 });
 
 router.post('/register', function(req, res){
-	/*
 	Account.register(new Account({ username : req.body.username}),
 		req.body.password, function(err, account){
 			if (err){
@@ -22,18 +22,15 @@ router.post('/register', function(req, res){
 				res.redirect('/');
 			});
 	})
-	*/
 });
 
 router.get('/login', function(req, res){
 	res.render('login', { title: 'Login Page', user : req.user });
 });
 
-/*
 router.post('/login', passport.authenticate(''), function(req, res){
 	req.redirect('/');
 });
-*/
 
 router.get('/logout', function(req, res){
 	req.logout();
